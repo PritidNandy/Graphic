@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Studies — Pritid Nandy</title>
+  <meta name="description" content="Analytical case studies by Pritid Nandy — quantified business outcomes across trade policy, environmental analytics, system architecture, and AI automation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">Pritid Nandy</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about"       class="nav-link">About</a></li>
+        <li><a href="index.html#experience"  class="nav-link">Experience</a></li>
+        <li><a href="case-studies.html"      class="nav-link active">Case Studies</a></li>
+        <li><a href="index.html#contact"     class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── PAGE HEADER ── -->
+  <div class="page-header-section">
+    <div class="container">
+      <p class="hero-eyebrow">Portfolio</p>
+      <h1 class="hero-title">Work that moved decisions,<br>not just dashboards.</h1>
+      <p class="hero-subtitle">Each project below began with a specific question a stakeholder could not answer. These are the analyses that answered it — and what happened next.</p>
+    </div>
+  </div>
+
+  <main>
+    <div class="container">
+
+
+      <!-- ══════════════════════════════════════════════ -->
+      <!--  I. STRATEGIC ANALYTICS & TRADE               -->
+      <!-- ══════════════════════════════════════════════ -->
+
+      <div class="case-section-label">
+        <span>I — Strategic Analytics &amp; Trade</span>
+        <div class="rule"></div>
+      </div>
+
+
+      <!-- CASE: WHISKY -->
+      <article class="case-card" id="card-whisky">
+        <div class="case-card-summary" onclick="toggleCard('card-whisky')">
+          <div>
+            <p class="card-domain">Trade Policy · Demand Forecasting</p>
+            <h2 class="case-card-title">How much revenue did the 2019 U.S. tariffs actually cost UK distillers?</h2>
+            <p class="case-card-sit">UK distilleries plan production in years, but their export markets shift in months. When U.S. tariffs were imposed on Scotch whisky in 2019, producers needed to know whether to hold inventory, pivot to alternative markets, or lobby for FTA acceleration. Without a forward-looking model, those were guesses. I built one.</p>
+            <span class="tech-pill">Python · SARIMAX · XGBoost · Plotly/Dash</span>
+          </div>
+          <div class="signal-stat">
+            <span class="stat-num">£84M</span>
+            <span class="stat-lbl">Quantified revenue loss directly attributable to tariffs (2019–2021)</span>
+          </div>
+        </div>
+        <button class="toggle-btn" onclick="toggleCard('card-whisky')" aria-label="Expand case study">
+          Read full case study <i class="toggle-icon">↓</i>
+        </button>
+
+        <div class="card-detail">
+          <div class="detail-grid">
+            <div class="detail-block">
+              <h4>The decision at stake</h4>
+              <p>Distilleries faced a timing trap: committing to multi-year production while export demand shifted monthly due to tariffs, inflation, and currency swings. The question was whether U.S. tariffs were a temporary shock to ride out or a structural shift requiring market diversification. A second question followed: if India's FTA moved ahead, which tariff reduction pathway (front-loaded vs. phased) created more near-term headroom?</p>
+            </div>
+            <div class="detail-block">
+              <h4>What I built</h4>
+              <p>Two distinct model architectures were required because the data had two distinct problems. HMRC trade flows carry a strong seasonal signature — SARIMAX isolated the cyclical baseline. XGBoost, trained on IMF partner-country GDP, Bank of England exchange rates, and ONS spirits inflation, absorbed external shocks. Both were validated against tariff-period data, and XGBoost outperformed on MAE. Outputs were surfaced in a Plotly/Dash dashboard where producers could dial FTA scenarios in real time — turning a statistical model into a commercial negotiation tool.</p>
+            </div>
+          </div>
+
+          <div class="outcome-block">
+            <h4>What the analysis showed</h4>
+            <div class="outcome-grid">
+              <div>
+                <span class="o-num">22%</span>
+                <span class="o-label">lower U.S. exports during tariff period</span>
+                <span class="o-context">vs. model's no-tariff counterfactual</span>
+              </div>
+              <div>
+                <span class="o-num">£84M</span>
+                <span class="o-label">revenue gap directly attributable to tariffs</span>
+                <span class="o-context">shaded area between actual and counterfactual</span>
+              </div>
+              <div>
+                <span class="o-num">31%</span>
+                <span class="o-label">projected growth under front-loaded India FTA</span>
+                <span class="o-context">vs. 18% under phased reduction pathway</span>
+              </div>
+              <div>
+                <span class="o-num">0.68</span>
+                <span class="o-label">income elasticity of whisky demand</span>
+                <span class="o-context">luxury good sensitivity to partner GDP growth</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="insights-block">
+            <h4>Key findings</h4>
+            <ul>
+              <li>The tariff impact was not uniform: it disproportionately hit premium aged expressions shipped in bulk, while blended Scotch showed partial resilience through price point adjustments.</li>
+              <li>Front-loaded FTA tariff reductions (eliminating duty in years 1–3) produced 31% projected volume growth vs. 18% under a phased 10-year pathway — making the sequencing of FTA terms a material commercial question, not just a diplomatic one.</li>
+              <li>Whisky exports showed 0.68 income elasticity to partner-country GDP — meaning emerging market growth is a stronger long-run driver than sterling depreciation, inverting the conventional wisdom about FX hedging priority.</li>
+            </ul>
+          </div>
+
+          <div class="image-showcase">
+            <h4>Visualisations</h4>
+            <div class="image-grid">
+              <div class="image-item">
+                <img src="images/whisky-forecast-chart.png" alt="Export Volume Forecast">
+                <div class="image-caption">
+                  <strong>Export Volume Forecast (2015–2025)</strong>
+                  <span>Time-series comparison showing model accuracy during tariff periods.</span>
+                </div>
+              </div>
+              <div class="image-item">
+                <img src="images/tariff-impact-analysis.png" alt="Tariff Impact Analysis">
+                <div class="image-caption">
+                  <strong>Counterfactual "No-Tariff" Scenario</strong>
+                  <span>Shaded area between actual and counterfactual = £84M lost revenue directly attributable to tariffs.</span>
+                </div>
+              </div>
+              <div class="image-item">
+                <img src="images/fta-scenario-dashboard.png" alt="FTA Scenario Dashboard">
+                <div class="image-caption">
+                  <strong>UK–India FTA Pathway Analysis</strong>
+                  <span>Interactive dashboard showing revenue sensitivity across front-loaded vs. phased FTA pathways.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="method-note">Data: HMRC CN8 commodity trade flows, IMF World Economic Outlook GDP forecasts, ONS CPIH spirits sub-index, Bank of England effective exchange rates.</p>
+        </div>
+      </article>
+
+
+      <!-- CASE: CO2 -->
+      <article class="case-card" id="card-co2">
+        <div class="case-card-summary" onclick="toggleCard('card-co2')">
+          <div>
+            <p class="card-domain">Environmental Analytics · Regression Modelling</p>
+            <h2 class="case-card-title">Are vehicle emissions taxes targeting the right engineering variables?</h2>
+            <p class="case-card-sit">Blanket emissions regulations — based on engine size or fuel type — risk penalising the wrong manufacturers while leaving the highest-emitting vehicle categories unaffected. Nordic regulators and automakers needed to know which engineering characteristics actually drove real-world CO₂ output before committing to policy frameworks.</p>
+            <span class="tech-pill">Python · Scikit-learn · Seaborn · EEA Data</span>
+          </div>
+          <div class="signal-stat">
+            <span class="stat-num">r = 0.78</span>
+            <span class="stat-lbl">Engine power correlates more strongly with CO₂ output than engine size or fuel type</span>
+          </div>
+        </div>
+        <button class="toggle-btn" onclick="toggleCard('card-co2')" aria-label="Expand case study">
+          Read full case study <i class="toggle-icon">↓</i>
+        </button>
+
+        <div class="card-detail">
+          <div class="detail-grid">
+            <div class="detail-block">
+              <h4>The decision at stake</h4>
+              <p>Automakers were investing R&D budgets in areas that regulators signalled mattered — engine displacement, fuel type — but there was no data-grounded answer to which variables actually predicted real-world emissions output. Policymakers needed evidence to shift from blanket rules to targeted intervention: a tax calibrated to power-to-weight ratios rather than engine litreage would affect a different set of vehicles entirely.</p>
+            </div>
+            <div class="detail-block">
+              <h4>What I built</h4>
+              <p>A full correlation matrix across all features surfaced engine power as the dominant signal — without prior assumption. The regression model was built on that ranked feature set, validated against held-out test data, and extended into counterfactual scenario testing: apply a power-to-weight tax threshold, and what does the model predict happens to fleet-average emissions? That final step transformed a descriptive analysis into a policy stress-test.</p>
+            </div>
+          </div>
+
+          <div class="outcome-block">
+            <h4>What the analysis showed</h4>
+            <div class="outcome-grid">
+              <div>
+                <span class="o-num">r = 0.78</span>
+                <span class="o-label">engine power → CO₂ correlation</span>
+                <span class="o-context">strongest predictor across all features tested</span>
+              </div>
+              <div>
+                <span class="o-num">90%+</span>
+                <span class="o-label">model accuracy on new vehicle prototypes</span>
+                <span class="o-context">R² on held-out test set</span>
+              </div>
+              <div>
+                <span class="o-num">62%</span>
+                <span class="o-label">lower emissions for hybrids vs. conventional</span>
+                <span class="o-context">controlling for vehicle weight</span>
+              </div>
+              <div>
+                <span class="o-num">23%</span>
+                <span class="o-label">residual variance explained by country policy differences</span>
+                <span class="o-context">beyond engineering characteristics alone</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="insights-block">
+            <h4>Key findings</h4>
+            <ul>
+              <li>Engine power and kerb weight jointly explained more CO₂ variance than fuel type — suggesting that a power-to-weight levy would be a more efficient policy instrument than the current fuel-type exemption framework.</li>
+              <li>The 23% residual variance attributable to country-level policy differences indicates that even identical vehicles emit differently across Nordic markets due to urban speed limits, inspection regimes, and cold-start protocols.</li>
+              <li>The model can predict emissions for new vehicle prototypes before road testing, giving manufacturers an early signal for design iteration rather than post-homologation correction.</li>
+            </ul>
+          </div>
+
+          <div class="image-showcase">
+            <h4>Visualisations</h4>
+            <div class="image-grid">
+              <div class="image-item">
+                <img src="images/co2-by-country.png" alt="CO2 Emissions by Nordic Region">
+                <div class="image-caption">
+                  <strong>CO₂ Emissions by Nordic Region</strong>
+                  <span>Geographic visualisation highlighting outliers for targeted policy intervention.</span>
+                </div>
+              </div>
+              <div class="image-item">
+                <img src="images/co2-predictive-model.png" alt="Predictive Model Performance">
+                <div class="image-caption">
+                  <strong>Predictive Model Performance</strong>
+                  <span>Regression model showing actual vs. predicted emissions with R² metrics on held-out test data.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="method-note">Data: European Environment Agency vehicle registration and emissions dataset (Nordic countries). Features: engine displacement, kerb weight, engine power output, fuel type, transmission type.</p>
+        </div>
+      </article>
+
+
+      <!-- CASE: AIR POLLUTION -->
+      <article class="case-card" id="card-air">
+        <div class="case-card-summary" onclick="toggleCard('card-air')">
+          <div>
+            <p class="card-domain">Public Health Analytics · Dashboard Design</p>
+            <h2 class="case-card-title">Which EU regions are breaching WHO air quality limits — and who doesn't know it yet?</h2>
+            <p class="case-card-sit">The European Environment Agency publishes PM2.5 data annually, but it arrives as a set of raw CSV files by monitoring station. Health commissioners and urban planners cannot act on those files — they cannot see the regional pattern, spot the seasonal spikes, or identify which zones need urgent intervention. The data existed; the visibility did not.</p>
+            <span class="tech-pill">Python · Dash/Plotly · GeoPandas · EEA API</span>
+          </div>
+          <div class="signal-stat">
+            <span class="stat-num">17%</span>
+            <span class="stat-lbl">of EU NUTS-2 regions exceeded WHO 2021 PM2.5 guidelines — most without real-time awareness</span>
+          </div>
+        </div>
+        <button class="toggle-btn" onclick="toggleCard('card-air')" aria-label="Expand case study">
+          Read full case study <i class="toggle-icon">↓</i>
+        </button>
+
+        <div class="card-detail">
+          <div class="detail-grid">
+            <div class="detail-block">
+              <h4>The decision at stake</h4>
+              <p>Public health funding in the EU is allocated partly on the basis of demonstrated environmental risk. But local government bodies were making funding bids without being able to show precisely which sub-regions exceeded which specific WHO thresholds, and by how much. The absence of a clear visual comparison between measured PM2.5 and the 2021 WHO guideline update meant many regions did not realise they were now technically non-compliant.</p>
+            </div>
+            <div class="detail-block">
+              <h4>What I built</h4>
+              <p>GeoPandas was used to aggregate station readings upward to NUTS-2 regional boundaries. Three views were built: a choropleth map for spatial pattern recognition, a seasonal decomposition chart to surface winter peaks that annual summaries hide, and a compliance ranking table for the top-decile worst performers. The 2021 WHO guideline revision was hardcoded as the comparison benchmark — meaning every non-compliant region saw its status correctly labelled from the moment the dashboard loaded.</p>
+            </div>
+          </div>
+
+          <div class="outcome-block">
+            <h4>What the analysis showed</h4>
+            <div class="outcome-grid">
+              <div>
+                <span class="o-num">17%</span>
+                <span class="o-label">of EU NUTS-2 regions exceeded WHO guidelines</span>
+                <span class="o-context">2021 data; tighter limit revealed new breaches</span>
+              </div>
+              <div>
+                <span class="o-num">2.3×</span>
+                <span class="o-label">higher non-compliance rate, Eastern vs. Western Europe</span>
+                <span class="o-context">primarily coal-dependent heating regions</span>
+              </div>
+              <div>
+                <span class="o-num">40%</span>
+                <span class="o-label">winter peak above annual average</span>
+                <span class="o-context">in coal-reliant regions; not visible in annual summaries</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="insights-block">
+            <h4>Key findings</h4>
+            <ul>
+              <li>The 2021 WHO guideline revision (from 10 µg/m³ to 5 µg/m³ annual mean) effectively reclassified regions that were previously compliant. Many regional bodies had not updated their compliance calculations.</li>
+              <li>Winter PM2.5 peaks in coal-heating regions ran 40% above annual averages, meaning annual summaries structurally understate the population health exposure burden.</li>
+              <li>The top-decile non-compliant zones are geographically concentrated in a corridor spanning southern Poland, Czech Republic, and northern Hungary — a pattern that supports a coordinated EU intervention rather than isolated national responses.</li>
+            </ul>
+          </div>
+
+          <div class="image-showcase">
+            <h4>Visualisations</h4>
+            <div class="image-grid">
+              <div class="image-item">
+                <img src="images/pm25-compliance-map.png" alt="EU PM2.5 Choropleth Map">
+                <div class="image-caption">
+                  <strong>EU PM2.5 Compliance Choropleth</strong>
+                  <span>Spatial pattern view across NUTS-2 regions, benchmarked against the revised 2021 WHO guideline.</span>
+                </div>
+              </div>
+              <div class="image-item">
+                <img src="images/pm25-seasonal-trends.png" alt="Seasonal Decomposition Chart">
+                <div class="image-caption">
+                  <strong>Seasonal Decomposition — Winter Peaks</strong>
+                  <span>Coal-reliant regions show PM2.5 running 40% above annual averages in winter months.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="method-note">Data: European Environment Agency discomap.eea.europa.eu API, NUTS-2 boundary files (Eurostat). Guideline reference: WHO Global Air Quality Guidelines, 2021 update.</p>
+        </div>
+      </article>
+
+
+      <!-- ══════════════════════════════════════════════ -->
+      <!--  II. ARCHITECTURE & SYSTEM ENGINEERING        -->
+      <!-- ══════════════════════════════════════════════ -->
+
+      <div class="case-section-label">
+        <span>II — Architecture &amp; System Engineering</span>
+        <div class="rule"></div>
+      </div>
+
+
+      <!-- CASE: WALMART POLYGLOT -->
+      <article class="case-card" id="card-walmart">
+        <div class="case-card-summary" onclick="toggleCard('card-walmart')">
+          <div>
+            <p class="card-domain">Database Architecture · Enterprise Scale</p>
+            <h2 class="case-card-title">Why does a single database design fail at Walmart-scale retail — and what replaces it?</h2>
+            <p class="case-card-sit">A retailer at scale has two fundamentally incompatible data needs running simultaneously: absolute precision for financial transactions, and schema-free flexibility for a product catalogue that changes faster than any schema migration can keep up with. Forcing both into one relational database means either the financials become fragile or the product data becomes unworkable. This project designed the architecture that separates the two.</p>
+            <span class="tech-pill">SQL Server · MongoDB · PyMongo · ERD Modelling</span>
+          </div>
+          <div class="signal-stat">
+            <span class="stat-num">40%</span>
+            <span class="stat-lbl">Reduction in product page load time after decoupling the two data stores</span>
+          </div>
+        </div>
+        <button class="toggle-btn" onclick="toggleCard('card-walmart')" aria-label="Expand case study">
+          Read full case study <i class="toggle-icon">↓</i>
+        </button>
+
+        <div class="card-detail">
+          <div class="detail-grid">
+            <div class="detail-block">
+              <h4>The decision at stake</h4>
+              <p>The business needed to add new product attributes rapidly and without schema migrations that risk transactional data integrity. But the finance team needed zero-defect ACID compliance on orders, payments, and inventory reconciliation. The architectural question was where to draw the boundary between these two worlds, and how to keep them in sync without creating a new integration bottleneck.</p>
+            </div>
+            <div class="detail-block">
+              <h4>What I built</h4>
+              <p>The key design decision was entity boundary design: which data belongs in which store, and why. Orders and payments require ACID compliance — SQL Server handles that subset and only that subset. Product catalogue, reviews, and personalisation metadata require schema-free flexibility — MongoDB handles that domain. A Python/PyMongo ETL layer synchronises reference identifiers between the two stores without coupling their schemas.</p>
+            </div>
+          </div>
+
+          <div class="outcome-block">
+            <h4>What the architecture delivered</h4>
+            <div class="outcome-grid">
+              <div>
+                <span class="o-num">0</span>
+                <span class="o-label">financial data discrepancies post-migration</span>
+                <span class="o-context">100% audit integrity maintained</span>
+              </div>
+              <div>
+                <span class="o-num">40%</span>
+                <span class="o-label">faster product page load times</span>
+                <span class="o-context">removing a key driver of cart abandonment</span>
+              </div>
+              <div>
+                <span class="o-num">40%</span>
+                <span class="o-label">faster feature iteration for product teams</span>
+                <span class="o-context">schema-less catalogue removes migration dependency</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="insights-block">
+            <h4>Key findings</h4>
+            <ul>
+              <li>The most important design decision was not which databases to use, but where to draw the entity boundary. Reviews belong in MongoDB not because they are "unstructured" but because their schema evolves with product categories in ways no fixed schema anticipates.</li>
+              <li>Keeping the financial ledger in SQL Server isolated the ACID requirement to the subset of queries that genuinely needed it, eliminating the deadlock risk monolithic architectures face at Black Friday traffic volumes.</li>
+              <li>Schema-free product catalogue iteration removed a persistent bottleneck: new product types could be onboarded without a database migration ticket.</li>
+            </ul>
+          </div>
+
+          <div class="image-showcase">
+            <h4>Visualisations</h4>
+            <div class="image-grid">
+              <div class="image-item">
+                <img src="images/polyglot-architecture-diagram.png" alt="Polyglot Architecture Diagram">
+                <div class="image-caption">
+                  <strong>Hybrid Architecture Diagram</strong>
+                  <span>Data flow separation between SQL Server (transactional) and MongoDB (product metadata), with ETL sync layer.</span>
+                </div>
+              </div>
+              <div class="image-item">
+                <img src="images/page-load-comparison.png" alt="Page Load Performance Comparison">
+                <div class="image-caption">
+                  <strong>Page-Load Performance: Before vs. After</strong>
+                  <span>40% latency reduction after decoupling the two data stores — a direct driver of cart abandonment reduction.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="method-note">Architecture pattern: Polyglot Persistence. Transactional store: Microsoft SQL Server. Document store: MongoDB via PyMongo. Boundary design informed by DDD entity modelling and aggregate root principles.</p>
+        </div>
+      </article>
+
+
+      <!-- CASE: HR PAYROLL -->
+      <article class="case-card" id="card-hr">
+        <div class="case-card-summary" onclick="toggleCard('card-hr')">
+          <div>
+            <p class="card-domain">Process Automation · SME Systems</p>
+            <h2 class="case-card-title">Can an SME factory run payroll in under an hour — without a specialist HR system?</h2>
+            <p class="case-card-sit">Small manufacturers with fewer than 50 employees rarely justify the cost of enterprise HR platforms, so they run payroll on spreadsheets. The consequence: hours of monthly reconciliation, wage calculation errors, no audit trail for disputes, and HR staff spending their time doing arithmetic instead of managing people.</p>
+            <span class="tech-pill">Python · Tkinter · SQLite · SQLAlchemy</span>
+          </div>
+          <div class="signal-stat">
+            <span class="stat-num">8h → 45min</span>
+            <span class="stat-lbl">Monthly payroll processing time after automating attendance-based salary calculations</span>
+          </div>
+        </div>
+        <button class="toggle-btn" onclick="toggleCard('card-hr')" aria-label="Expand case study">
+          Read full case study <i class="toggle-icon">↓</i>
+        </button>
+
+        <div class="card-detail">
+          <div class="detail-grid">
+            <div class="detail-block">
+              <h4>The decision at stake</h4>
+              <p>A factory manager needed to know if he could enforce consistent pay rules across 50+ employees — handling full-day, half-day, and absence distinctions — without purchasing an enterprise HR licence or retraining staff on new software. The prior system was a combination of Excel files across three departments with no single source of truth, making wage disputes both common and difficult to resolve.</p>
+            </div>
+            <div class="detail-block">
+              <h4>What I built</h4>
+              <p>Tkinter and SQLite were chosen deliberately for zero-cost deployment on factory floor Windows machines with no internet dependency. The attendance module used a controlled three-option vocabulary — Present, Half-Day, Absent — because the prior free-text system was the root cause of most calculation errors. SQLAlchemy delivered a timestamped audit trail for every payroll run, traceable to the source attendance record. Disputes became traceable to data.</p>
+            </div>
+          </div>
+
+          <div class="outcome-block">
+            <h4>What the system delivered</h4>
+            <div class="outcome-grid">
+              <div>
+                <span class="o-num">90%</span>
+                <span class="o-label">reduction in payroll processing time</span>
+                <span class="o-context">from ~8 hours to under 45 minutes monthly</span>
+              </div>
+              <div>
+                <span class="o-num">100%</span>
+                <span class="o-label">elimination of duplicate employee records</span>
+                <span class="o-context">single master record per employee</span>
+              </div>
+              <div>
+                <span class="o-num">94%</span>
+                <span class="o-label">reduction in data entry errors</span>
+                <span class="o-context">controlled vocabulary vs. free-text spreadsheet input</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="insights-block">
+            <h4>Key findings</h4>
+            <ul>
+              <li>The highest-leverage design choice was replacing free-text status entries with a three-option controlled vocabulary. This single change eliminated the majority of data entry errors and made the salary calculation rule unambiguous.</li>
+              <li>An audit trail for every payroll run resolved the factory's recurring wage dispute problem: discrepancies could now be traced to source data rather than requiring he-said/she-said resolution.</li>
+              <li>SQLite was the correct choice over a cloud database: the factory had intermittent internet, the dataset was well within SQLite's operational limits, and there was no IT infrastructure to maintain a server.</li>
+            </ul>
+          </div>
+
+          <div class="image-showcase">
+            <h4>Visualisations</h4>
+            <div class="image-grid">
+              <div class="image-item">
+                <img src="images/hr-employee-management.png" alt="Employee Management Tab">
+                <div class="image-caption">
+                  <strong>Employee Management Tab</strong>
+                  <span>Centralised employee database with search and edit — eliminating 100% of duplicate records across departments.</span>
+                </div>
+              </div>
+              <div class="image-item">
+                <img src="images/hr-attendance-tracking.png" alt="Attendance Tracking">
+                <div class="image-caption">
+                  <strong>Calendar-Based Attendance Logger</strong>
+                  <span>Controlled vocabulary (Present / Half-Day / Absent) reduced data entry errors by 94% vs. free-text spreadsheets.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="method-note">Stack: Python 3, Tkinter + tkcalendar for UI, SQLite for persistence, SQLAlchemy ORM. Designed for offline operation on Windows factory floor machines.</p>
+        </div>
+      </article>
+
+
+      <!-- ══════════════════════════════════════════════ -->
+      <!--  III. OPERATIONS & AI OPTIMISATION            -->
+      <!-- ══════════════════════════════════════════════ -->
+
+      <div class="case-section-label">
+        <span>III — Operations &amp; AI Optimisation</span>
+        <div class="rule"></div>
+      </div>
+
+
+      <!-- CASE: LLM REVIEW -->
+      <article class="case-card" id="card-llm">
+        <div class="case-card-summary" onclick="toggleCard('card-llm')">
+          <div>
+            <p class="card-domain">AI Automation · NLP · Prompt Engineering</p>
+            <h2 class="case-card-title">How do you respond to every negative customer review without scaling your support team?</h2>
+            <p class="case-card-sit">High-volume review platforms punish silence: an unanswered one-star review sits there compounding. But the economics of paying human agents to respond individually don't scale. The alternative most companies chose was to respond to nothing. This project built the third option.</p>
+            <span class="tech-pill">Python · OpenAI GPT-3.5-Turbo · TextBlob · Prompt Engineering</span>
+          </div>
+          <div class="signal-stat">
+            <span class="stat-num">33%</span>
+            <span class="stat-lbl">Reduction in API token cost through prompt engineering, without reducing response quality</span>
+          </div>
+        </div>
+        <button class="toggle-btn" onclick="toggleCard('card-llm')" aria-label="Expand case study">
+          Read full case study <i class="toggle-icon">↓</i>
+        </button>
+
+        <div class="card-detail">
+          <div class="detail-grid">
+            <div class="detail-block">
+              <h4>The decision at stake</h4>
+              <p>A retail brand was receiving hundreds of reviews daily across platforms. The operational question was not whether to use AI for responses — that decision was made — but how to make the economics viable. Raw GPT API calls at full token length would cost more than the support team they were replacing. The real engineering problem was reducing token payload without losing the contextual sensitivity that makes a response feel genuine.</p>
+            </div>
+            <div class="detail-block">
+              <h4>What I built</h4>
+              <p>A two-stage pipeline decoupled the cheap classification decision from the expensive generation step. TextBlob handles sentiment pre-classification first — routing each review into negative, neutral, or positive buckets at near-zero compute. Only then does GPT-3.5-Turbo engage, with a batching strategy that amortises system-prompt overhead across multiple reviews sharing the same sentiment category. Context compression ran in parallel: stripping metadata irrelevant to tone reduced average payload from 152 to 98 tokens per call.</p>
+            </div>
+          </div>
+
+          <div class="outcome-block">
+            <h4>What the system delivered</h4>
+            <div class="outcome-grid">
+              <div>
+                <span class="o-num">33%</span>
+                <span class="o-label">lower API cost per response</span>
+                <span class="o-context">through batching and context compression</span>
+              </div>
+              <div>
+                <span class="o-num">500+</span>
+                <span class="o-label">reviews processed per hour</span>
+                <span class="o-context">at zero marginal labour cost</span>
+              </div>
+              <div>
+                <span class="o-num">12–18%</span>
+                <span class="o-label">at-risk customer recovery rate</span>
+                <span class="o-context">negative reviewers retained after prompt response</span>
+              </div>
+              <div>
+                <span class="o-num">&lt; 5s</span>
+                <span class="o-label">response latency</span>
+                <span class="o-context">vs. hours for manual team triage</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="insights-block">
+            <h4>Key findings</h4>
+            <ul>
+              <li>Batching by sentiment category — not review volume — was the key efficiency gain. Grouping all "delivery complaint" negatives into one batch call cuts per-review token usage by 41%.</li>
+              <li>Reviews mentioning delivery or packaging had 3.2× higher negative sentiment rates than reviews about product quality — identifying a supply chain communication gap the CX team could act on separately.</li>
+              <li>Responses that referenced the specific product detail mentioned in a review received 2.1× higher helpfulness ratings in follow-up surveys — justifying the additional context extraction step.</li>
+            </ul>
+          </div>
+
+          <div class="image-showcase">
+            <h4>Visualisations</h4>
+            <div class="image-grid">
+              <div class="image-item">
+                <img src="images/llm-response-comparison.png" alt="Response Quality Comparison">
+                <div class="image-caption">
+                  <strong>Automated vs. Human Response Quality</strong>
+                  <span>Side-by-side comparison — sentiment-aware prompts achieved 94% tone alignment with brand voice guidelines.</span>
+                </div>
+              </div>
+              <div class="image-item">
+                <img src="images/llm-cost-efficiency.png" alt="Token Optimisation Impact">
+                <div class="image-caption">
+                  <strong>Token Optimisation Impact</strong>
+                  <span>Batch processing reduced average tokens per response from 152 to 98, cutting API costs by 33%.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="method-note">Stack: Python, Pandas, OpenAI API (GPT-3.5-turbo, 2023 version), TextBlob for sentiment pre-filtering. Prompt architecture: role-based system instructions with persona, tone, and escalation guidelines.</p>
+        </div>
+      </article>
+
+
+      <!-- CASE: SUPPLY CHAIN -->
+      <article class="case-card" id="card-sc">
+        <div class="case-card-summary" onclick="toggleCard('card-sc')">
+          <div>
+            <p class="card-domain">Supply Chain · Demand Planning</p>
+            <h2 class="case-card-title">Why does a small demand fluctuation at retail level cause chaos further up the supply chain?</h2>
+            <p class="case-card-sit">The bullwhip effect is well-documented in supply chain theory, but the companies experiencing it rarely see it as a forecasting failure — they see it as a logistics problem. This project reframed the question: chaotic warehouse rescheduling and emergency shipment costs were symptoms of a single root cause — demand forecasts built on aggregate data that obscured the product cohort patterns that actually determined order behaviour.</p>
+            <span class="tech-pill">Advanced Excel · Power Query · FORECAST.ETS · Cohort Analysis</span>
+          </div>
+          <div class="signal-stat">
+            <span class="stat-num">18%</span>
+            <span class="stat-lbl">Improvement in forecast accuracy from cohort-based modelling vs. aggregate demand forecasting</span>
+          </div>
+        </div>
+        <button class="toggle-btn" onclick="toggleCard('card-sc')" aria-label="Expand case study">
+          Read full case study <i class="toggle-icon">↓</i>
+        </button>
+
+        <div class="card-detail">
+          <div class="detail-grid">
+            <div class="detail-block">
+              <h4>The decision at stake</h4>
+              <p>A procurement team needed forward visibility 8–12 weeks out to negotiate bulk shipping rates confidently. Without reliable forecasts, they were forced into spot-rate freight and emergency warehouse restaging — a known 15–20 hours per week of labour cost. The question was whether a statistical model built in Excel could deliver enough accuracy improvement to make the operational savings real.</p>
+            </div>
+            <div class="detail-block">
+              <h4>What I built</h4>
+              <p>The modelling insight that made this work was a reframing of the unit of analysis. Standard demand forecasting aggregates by SKU. But SKUs launched in the same quarter share a structural demand curve — their week-on-week decay follows a consistent pattern regardless of absolute volume. Group by cohort instead of individual SKU, and the signal becomes dramatically cleaner. Excel's FORECAST.ETS with exponential smoothing was applied at cohort level. Power Query reshaped raw data into weekly demand series by launch cohort.</p>
+            </div>
+          </div>
+
+          <div class="outcome-block">
+            <h4>What the model delivered</h4>
+            <div class="outcome-grid">
+              <div>
+                <span class="o-num">18%</span>
+                <span class="o-label">improvement in forecast accuracy</span>
+                <span class="o-context">cohort model vs. prior aggregate forecasting</span>
+              </div>
+              <div>
+                <span class="o-num">8–12%</span>
+                <span class="o-label">logistics savings from bulk-shipping negotiations</span>
+                <span class="o-context">enabled by 8-week forward visibility</span>
+              </div>
+              <div>
+                <span class="o-num">15–20h/wk</span>
+                <span class="o-label">labour reduction</span>
+                <span class="o-context">emergency re-staging eliminated</span>
+              </div>
+              <div>
+                <span class="o-num">23%</span>
+                <span class="o-label">higher forecast accuracy for Q1 launches vs. Q4</span>
+                <span class="o-context">seasonal effects were material, not marginal</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="insights-block">
+            <h4>Key findings</h4>
+            <ul>
+              <li>Products launched in the same quarter share a demand curve shape — their week-on-week decay follows a consistent pattern regardless of absolute volume. Grouping by cohort made the signal far cleaner.</li>
+              <li>Promotional weeks showed 3.1× higher demand variance than non-promotional weeks. Flagging promotional weeks as structural outliers was the single biggest accuracy improvement.</li>
+              <li>The Q1 vs. Q4 accuracy gap (23%) confirmed that launch seasonality is material — products launched into Q4 inherit the noise of the holiday demand spike, making their baseline demand profile harder to read.</li>
+            </ul>
+          </div>
+
+          <div class="image-showcase">
+            <h4>Visualisations</h4>
+            <div class="image-grid">
+              <div class="image-item">
+                <img src="images/supply-chain-cohort-model.png" alt="Cohort Demand Model">
+                <div class="image-caption">
+                  <strong>Cohort-Based Demand Model</strong>
+                  <span>Weekly demand series by launch cohort — grouping by cohort rather than SKU made the signal far cleaner.</span>
+                </div>
+              </div>
+              <div class="image-item">
+                <img src="images/supply-chain-forecast-accuracy.png" alt="Forecast Accuracy Validation">
+                <div class="image-caption">
+                  <strong>Forecast Accuracy Validation (MAPE)</strong>
+                  <span>Model vs. held-out actuals — 18% improvement in accuracy over prior aggregate forecasting approach.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="method-note">Stack: Microsoft Excel (Power Query, FORECAST.ETS, Solver, Scenario Manager). Validation metrics: MAPE, forecast bias. Model updated weekly by procurement team using built-in data refresh.</p>
+        </div>
+      </article>
+
+
+      <!-- CASE: POS -->
+      <article class="case-card" id="card-pos">
+        <div class="case-card-summary" onclick="toggleCard('card-pos')">
+          <div>
+            <p class="card-domain">Retail Analytics · Workforce Optimisation</p>
+            <h2 class="case-card-title">What are 2.7 MB of transaction logs actually worth to a store manager?</h2>
+            <p class="case-card-sit">Every retail POS system logs every transaction. Almost none of that data is ever looked at. Store managers schedule staff based on experience and intuition, floor plans are set once and rarely revised, and bundling opportunities are left for category managers to discover through slow manual review. The data to make better decisions on all three already existed — it just had not been extracted.</p>
+            <span class="tech-pill">Python · Pandas · Time-Series · Association Rules</span>
+          </div>
+          <div class="signal-stat">
+            <span class="stat-num">3.4×</span>
+            <span class="stat-lbl">Higher sales velocity on Saturday 11am–2pm vs. average weekday — the gap the staffing model was not capturing</span>
+          </div>
+        </div>
+        <button class="toggle-btn" onclick="toggleCard('card-pos')" aria-label="Expand case study">
+          Read full case study <i class="toggle-icon">↓</i>
+        </button>
+
+        <div class="card-detail">
+          <div class="detail-grid">
+            <div class="detail-block">
+              <h4>The decision at stake</h4>
+              <p>A retail operations manager needed to justify a shift in staffing model — moving from fixed rota patterns to a demand-signal-driven schedule — to a finance team that was sceptical of the labour cost reallocation. The case required showing not just that peaks existed but that the peaks were consistent, predictable, and large enough to warrant a structural change rather than ad-hoc adjustments.</p>
+            </div>
+            <div class="detail-block">
+              <h4>What I built</h4>
+              <p>Pandas chunking parsed 2.7MB of raw POS logs into hourly and daily demand series. The time-series aggregation answered the staffing question — transaction density by hour-of-day crossed with day-of-week. The association rule pass answered the merchandising question: which products are bought together, at what confidence level, and in which time windows? The staffing output showed peaks were consistent across all 12 weeks and large enough in magnitude (3.4×) to justify structural rota change.</p>
+            </div>
+          </div>
+
+          <div class="outcome-block">
+            <h4>What the analysis showed</h4>
+            <div class="outcome-grid">
+              <div>
+                <span class="o-num">3.4×</span>
+                <span class="o-label">Saturday 11am–2pm vs. weekday average transaction rate</span>
+                <span class="o-context">consistent across 12 weeks of data</span>
+              </div>
+              <div>
+                <span class="o-num">68%</span>
+                <span class="o-label">coffee + pastry co-purchase rate in morning window</span>
+                <span class="o-context">bundling opportunity undetected before analysis</span>
+              </div>
+              <div>
+                <span class="o-num">12–18%</span>
+                <span class="o-label">overhead reduction opportunity</span>
+                <span class="o-context">by reallocating off-peak hours to cover Saturday surge</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="insights-block">
+            <h4>Key findings</h4>
+            <ul>
+              <li>The 3.4× Saturday peak was consistent across all 12 weeks — making it a reliable planning input rather than an anomaly. The existing staffing rota was covering the peak with overtime rather than structural reallocation, which was significantly more expensive.</li>
+              <li>The 68% coffee-pastry co-purchase rate in the morning window was the highest association in the dataset. This suggested floor proximity, not promotion, as the first intervention to test.</li>
+              <li>Stores with transaction variance above 15% between their highest and lowest hours showed the greatest cost reduction potential from dynamic scheduling.</li>
+            </ul>
+          </div>
+
+          <div class="image-showcase">
+            <h4>Visualisations</h4>
+            <div class="image-grid">
+              <div class="image-item">
+                <img src="images/pos-sales-density.png" alt="Sales Density Heatmap">
+                <div class="image-caption">
+                  <strong>Sales Density by Time-of-Day</strong>
+                  <span>Transaction density heatmap confirming the 3.4× Saturday peak as consistent across all 12 weeks — a reliable planning input, not an anomaly.</span>
+                </div>
+              </div>
+              <div class="image-item">
+                <img src="images/pos-basket-analysis.png" alt="Product Basket Analysis">
+                <div class="image-caption">
+                  <strong>Product Basket Analysis</strong>
+                  <span>Top co-purchase combinations by time window — the 68% coffee-pastry morning rate was the highest association in the dataset.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="method-note">Data: 2.7MB POS transaction log (12 weeks). Stack: Python, Pandas (chunked parsing for memory efficiency), Matplotlib/Seaborn. Association rules: minimum support 0.1, confidence 0.6.</p>
+        </div>
+      </article>
+
+    </div><!-- /container -->
+  </main>
+
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <span class="footer-name">Pritid Nandy</span>
+      <span class="footer-role">Business Data Analyst</span>
+      <span class="footer-tagline">Curated for clarity. Designed for commercial conviction.</span>
+      <div class="footer-links">
+        <a href="mailto:nandypritid@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/pritid-nandy" target="_blank">LinkedIn</a>
+        <a href="https://github.com/pritid-nandy"      target="_blank">GitHub</a>
+        <a href="index.html">Home</a>
+      </div>
+      <p class="footer-copy">© 2026 Pritid Nandy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
