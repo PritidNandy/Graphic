@@ -49,8 +49,8 @@ function initHeroPerspective() {
     const centerY = rect.height / 2;
     
     // Calculate fractional rotation (max approx 15 degrees)
-    const rotateX = ((y - centerY) / centerY) * -15; 
-    const rotateY = ((x - centerX) / centerX) * 15;
+    const rotateX = ((y - centerY) / centerY) * -30; 
+    const rotateY = ((x - centerX) / centerX) * 30;
     
     photo.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
     photo.style.transition = 'transform 0.1s ease-out';
